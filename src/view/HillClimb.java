@@ -1,5 +1,9 @@
 package view;
 
+/*
+ * Código original https://github.com/luanoliveira1992/hillclimbing.
+ * 
+ * */
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,17 +30,18 @@ public class HillClimb {
 
 		System.out.println("\n" + ":::::::::::::::::::::::::::MINHA ENTRADA::::::::::::::::::::::::::: " + "\n"
 				+ climp.getAtual());
+		System.out.println("Valor: " + mapa.valorFuncaoSolucao(climp.getAtual()));
 
-		while (contador < 10) {
+		while (contador < 20) {
 
 			List<No> proximaSolucao = climp.vizinho.gerarVizinho(new ArrayList<>(climp.atual));
 			Double atual = mapa.valorFuncaoSolucao(climp.getAtual());
 			Double proximo = mapa.valorFuncaoSolucao(proximaSolucao);
 
 			if (atual > proximo) {
+				climp.setAtual(proximaSolucao);
 				System.out.println("\n" + contador + " - " + "Meu nó atual agora tem e peguei o (proximo): ");
 				System.out.println(climp.getAtual() + "\n" + " Valor: " + proximo);
-				climp.setAtual(proximaSolucao);
 			} else {
 				System.out.println("\n" + contador + " - " + "Meu nó atual agora tem (atual): ");
 				System.out.println(climp.getAtual() + "\n" + " Valor: " + atual);
