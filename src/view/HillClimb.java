@@ -32,7 +32,7 @@ public class HillClimb {
 				+ climp.getAtual());
 		System.out.println("Valor: " + mapa.valorFuncaoSolucao(climp.getAtual()));
 
-		while (contador < 20) {
+		while (contador < 10) {
 
 			List<No> proximaSolucao = climp.vizinho.gerarVizinho(new ArrayList<>(climp.atual));
 			Double atual = mapa.valorFuncaoSolucao(climp.getAtual());
@@ -40,16 +40,16 @@ public class HillClimb {
 
 			if (atual > proximo) {
 				climp.setAtual(proximaSolucao);
-				System.out.println("\n" + contador + " - " + "Meu nó atual agora tem e peguei o (proximo): ");
+				System.out.println("\n" + (contador+1) + " - " + "Meu nó atual agora tem e peguei o (proximo): ");
 				System.out.println(climp.getAtual() + "\n" + " Valor: " + proximo);
 			} else {
-				System.out.println("\n" + contador + " - " + "Meu nó atual agora tem (atual): ");
+				System.out.println("\n" + (contador+1) + " - " + "Meu nó atual agora tem (atual): ");
 				System.out.println(climp.getAtual() + "\n" + " Valor: " + atual);
 			}
 			contador++;
 
 		}
-		System.out.println("\n" + contador + " ************************************************** " + "Solução Final "
+		System.out.println("\n" + " ************************************************** " + "Solução Final "
 				+ " ************************************************** ");
 		System.out.println(climp.getAtual() + mapa.valorFuncaoSolucao(climp.getAtual()).toString());
 		System.out.println("Valor solução: " + mapa.valorFuncaoSolucao(climp.getAtual()).toString());
